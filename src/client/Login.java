@@ -5,6 +5,8 @@
  */
 package client;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Vinay
@@ -105,12 +107,16 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ClientHome(name.getText(),ip.getText(),pass.getText()).setVisible(true);
-            }
-        });
+        if(name.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Enter Username");
+        }else{
+            this.setVisible(false);
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new ClientHome(name.getText(),ip.getText(),pass.getText()).setVisible(true);
+                }
+            });
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
